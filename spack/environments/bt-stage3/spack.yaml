@@ -7,7 +7,7 @@ spack:
   specs:
   - llvm+clang+flang+mlir+offload+zstd 
       ^binutils+gas+gold+gprofng+headers~interwork+ld~libiberty+lto+nls~pgo+plugins 
-      ^python+bz2+ctypes+dbm~debug+libxml2+lzma+nis+optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tkinter+uuid+zlib
+      ^python+bz2+ctypes+dbm~debug+libxml2+lzma+optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tkinter+uuid+zlib
       ^hwloc~cairo~cuda~gl+libudev+libxml2~nvml~level_zero+opencl+pci~rocm
   view: true
   concretizer:
