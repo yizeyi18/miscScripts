@@ -1,0 +1,14 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - llvm+clang+flang+mlir+offload+zstd 
+      ^binutils+gas+gold+gprofng+headers~interwork+ld~libiberty+lto+nls~pgo+plugins 
+      ^python+bz2+ctypes+dbm~debug+libxml2+lzma+nis+optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tkinter+uuid+zlib
+      ^hwloc~cairo~cuda~gl+libudev+libxml2~nvml~oneapi-level-zero+opencl+pci~rocm
+  view: true
+  concretizer:
+    unify: true

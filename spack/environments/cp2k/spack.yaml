@@ -1,0 +1,23 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - cp2k +cosma+dlaf+elpa+libint+libvori+libxc+mpi+mpi_f08+openmp+pexsi+sirius+spglib
+    ^cosma +ipo
+    ^dbcsr +ipo +mpi_f08
+    ^dla-future +hdf5+ipo+miniapps
+      ^mimalloc+ipo
+    ^libint  tune=cp2k-lmax-7
+    ^libxsmm +large_jit_buffer+shared
+    ^pexsi +ipo 
+      ^parmetis +ipo
+      ^metis +ipo
+      ^superlu-dist +ipo+parmetis
+    ^sirius +apps+dlaf+elpa+fortran+ipo+memory_pool+openmp+profiler+pugixml+scalapack+shared+vdwxc+wannier90
+      ^gsl +external-cblas
+  view: true
+  concretizer:
+    unify: true

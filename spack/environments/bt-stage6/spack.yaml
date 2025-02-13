@@ -1,0 +1,15 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - libxc+kxc+lxc
+  - hdf5 +cxx+fortran+hl+ipo~java~map+mpi+shared+subfiling+szip+threadsafe+tools
+  - libint+fortran tune=cp2k-lmax-7
+    ^eigen+ipo build_type=Release
+    ^boost+atomic~charconv+chrono~clanglibcpp~cobalt~container~context~contract~coroutine+date_time~debug+exception~fiber+filesystem+graph~graph_parallel~icu+iostreams+json+locale+log+math+mpi+multithreaded~nowide~numpy+pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded~stacktrace+system~taggedlayout+test+thread+timer~type_erasure~url~versionedlayout+wave build_system=generic cxxstd=17
+  view: true
+  concretizer:
+    unify: true

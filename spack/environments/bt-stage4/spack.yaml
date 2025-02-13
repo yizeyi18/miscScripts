@@ -1,0 +1,15 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - openmpi@5+openshmem+static fabrics=ucx
+    ^python+bz2+ctypes+dbm~debug+libxml2+lzma+nis+optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tkinter+uuid+zlib
+    ^ucx~assertions~backtrace_detail~cma~cuda~dc~debug~dm~examples~gdrcopy~gtest~ib_hw_tm~java~logging~mlx5_dv+openmp+optimizations~parameter_checking+pic~rc~rdmacm~rocm+thread_multiple~ucg~ud~verbs~xpmem+knem+vfs
+      ^knem@master+hwloc
+    ^pmix ^hwloc~cairo~cuda~gl+libudev+libxml2~nvml~oneapi-level-zero+opencl+pci~rocm
+  view: true
+  concretizer:
+    unify: true

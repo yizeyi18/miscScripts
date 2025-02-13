@@ -1,0 +1,11 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - python %gcc@14 +bz2+ctypes+dbm~debug+libxml2+lzma+nis+optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tkinter+uuid+zlib
+  view: true
+  concretizer:
+    unify: true
