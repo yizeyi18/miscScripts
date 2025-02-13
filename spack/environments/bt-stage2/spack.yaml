@@ -5,7 +5,7 @@
 spack:
   # add package specs to the `specs` list
   specs:
-  - python %gcc@14 +bz2+ctypes+dbm~debug+libxml2+lzma+nis+optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tkinter+uuid+zlib
+  - python %gcc@14 +bz2+ctypes+dbm~debug+libxml2+lzma+optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tkinter+uuid+zlib
   view: true
   concretizer:
     unify: true
