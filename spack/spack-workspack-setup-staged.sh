@@ -67,7 +67,7 @@ install_stage() {
   spack env activate $stage_dir
   spack concretize || { echo "$stage_dir failed"; exit 1; }
   spack install || { echo "$stage_dir failed"; exit 1; }
-  despacktivate
+  spack env deactivate 
 }
 
 install_stage bt-stage1
