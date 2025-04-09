@@ -1,0 +1,110 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  packages:
+    all:
+      prefer:
+        - +pic
+        - +ipo
+        - +mpi
+    python:
+      require:
+        - +bz2
+        - +ctypes
+        - +dbm
+        - +optimizations
+        - +pic
+        - ~debug
+    llvm:
+      require:
+        - +clang
+        - +flang
+        - +mlir
+        - +offload
+        - +zstd
+    hwloc:
+      require:
+        - ~cairo
+        - ~gl
+        - +libudev
+        - +opencl
+    knem:
+      require:
+        - +hwloc
+    ucx:
+      require:
+        - +cma
+        - +openmp
+        - +xpmem
+        - +knem
+        - +vfs
+        # verbs, rocm, rdmacm, rc/ud should be enabled along with GPU.
+    #ucc: enable along with GPU.
+    #  require:
+    #    - +rocm
+    #    - +rccl
+    mpi:
+      require:
+        - openmpi
+    openmpi:
+      require:
+        - +openshmem
+        - +static
+        - fabrics=ucx
+        #- fabrics=ucx, ucc enable along with GPU.
+    blas:
+      require:
+        - openblas
+    lapack:
+      require:
+        - openblas
+    openblas:
+      require:
+        - ~dynamic_dispatch
+        - +fortran
+        - +locking
+        - +pic
+        - build_system=makefile
+        - +shared
+    elpa:
+      require:
+        - +openmp
+    fftw-api:
+      require:
+        - fftw
+    fftw:
+      require:
+        - +openmp
+    scalapack:
+      require:
+        - netlib-scalapack
+    libxc:
+      require:
+        - +kxc
+        - +lxc
+    libint:
+      require:
+        - +fortran
+        - tune=cp2k-lmax-7
+    hdf5:
+      require:
+        - +cxx
+        - +hl
+        - +fortran
+        - +szip
+        - +threadsafe
+        - +map
+        - +subfiling
+  # add package specs to the `specs` list
+  specs:
+  - python %gcc@13:
+  - llvm
+  - fftw
+  - elpa
+  - libint
+  - libxc
+  view: true
+  concretizer:
+    unify: true

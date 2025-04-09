@@ -1,0 +1,36 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  packages:
+    all:
+      prefer:
+        - +pic
+        - +ipo
+        - +mpi
+    gcc:
+      require:
+        - +binutils
+        - +mold
+        - +bootstrap
+        - ~strip
+        - +piclibs
+        - +graphite
+    binutils:
+      require:
+        - +gas
+        - +gold
+        - +gprofng
+        - +headers
+        - +ld
+        - +lto
+        - +plugins
+        - ~interwork
+        - ~libiberty
+  # add package specs to the `specs` list
+  specs:
+  - gcc
+  view: true
+  concretizer:
+    unify: true
