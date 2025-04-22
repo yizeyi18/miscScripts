@@ -4,33 +4,32 @@
 # configuration settings.
 spack:
   packages:
-    all:
-      prefer:
-        - +pic
-        - +ipo
-        - +mpi
     gcc:
       require:
-        - +binutils
-        - +mold
-        - +bootstrap
-        - ~strip
-        - +piclibs
-        - +graphite
+      - +binutils
+      - +mold
+      - +bootstrap
+      - ~strip
+      - +piclibs
+      - +graphite
+    all:
+      prefer:
+      - +pic
+      - +ipo
+      - +mpi
     binutils:
       require:
-        - +gas
-        - +gold
-        - +gprofng
-        - +headers
-        - +ld
-        - +lto
-        - +plugins
-        - ~interwork
-        - ~libiberty
-  # add package specs to the `specs` list
+      - +gas
+      - +gold
+      - +gprofng
+      - +headers
+      - +ld
+      - +lto
+      - +plugins
+      - ~interwork
+      - ~libiberty
   specs:
-  - gcc
+  - gcc%gcc
   view: true
   concretizer:
     unify: true
