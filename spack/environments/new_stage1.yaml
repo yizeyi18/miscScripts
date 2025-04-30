@@ -4,14 +4,6 @@
 # configuration settings.
 spack:
   packages:
-    gcc:
-      require:
-      - +binutils
-      - +mold
-      - +bootstrap
-      - ~strip
-      - +piclibs
-      - +graphite
     all:
       prefer:
       - +pic
@@ -29,7 +21,7 @@ spack:
       - ~interwork
       - ~libiberty
   specs:
-  - gcc%gcc
+  - gcc+binutils+mold+bootstrap~strip+piclibs+graphite%gcc
   view: true
   concretizer:
     unify: true
