@@ -20,8 +20,8 @@ spack:
       - +plugins
       - ~interwork
       - ~libiberty
-  specs:
-  - gcc+binutils+mold+bootstrap~strip+piclibs+graphite%gcc
+  specs: # Before spack merge patches for gcc-15, stay at gcc-14
+  - gcc@14+binutils+mold+bootstrap~strip+piclibs+graphite%gcc
   view: true
   concretizer:
     unify: true
