@@ -9,6 +9,7 @@ spack:
         - +pic
         - +ipo
         - +mpi
+        - "%gcc@14:"
     python:
       require:
         - +bz2
@@ -24,6 +25,8 @@ spack:
         - +mlir
         - +offload
         - +zstd
+        - +link_llvm_dylib
+        - ~ipo #llvm+ipo%gcc would give segfault
     hwloc:
       require:
         - ~cairo
@@ -33,6 +36,10 @@ spack:
     knem:
       require:
         - +hwloc
+        - "@master"
+    xpmem:
+      require:
+        - "@master"
     ucx:
       require:
         - +cma
@@ -62,7 +69,7 @@ spack:
         - openblas
     openblas:
       require:
-        - ~dynamic_dispatch
+        - +dynamic_dispatch
         - +fortran
         - +locking
         - +pic
@@ -77,6 +84,7 @@ spack:
     fftw:
       require:
         - +openmp
+        - +mpi
     scalapack:
       require:
         - netlib-scalapack
@@ -99,7 +107,7 @@ spack:
         - +subfiling
   # add package specs to the `specs` list
   specs:
-  - python %gcc@13:
+  - python 
   - llvm
   - fftw
   - elpa
