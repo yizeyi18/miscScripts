@@ -1,0 +1,145 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  packages:
+    all:
+      prefer:
+        - +pic
+        - +ipo
+        - +mpi
+        - +openmp
+        - "%gcc@14:"
+    rust:
+      require:
+        - +dev
+    ghostscript:
+      require:
+        - ~gtk
+    openblas:
+      require:
+        - +dynamic_dispatch
+        - +fortran
+        - +locking
+        - +pic
+        - build_system=makefile
+        - +shared
+    elpa:
+      require:
+        - +openmp
+    fftw-api:
+      require:
+        - fftw
+    fftw:
+      require:
+        - +openmp
+        - +mpi
+    scalapack:
+      require:
+        - netlib-scalapack
+    libxc:
+      require:
+        - +kxc
+        - +lxc
+    libint:
+      require:
+        - +fortran
+        - tune=cp2k-lmax-7
+    hdf5:
+      require:
+        - +cxx
+        - +hl
+        - +fortran
+        - +szip
+        - +threadsafe
+        - +map
+        - +subfiling
+    cp2k:
+      require:
+        - lmax=7
+        - +spglib
+        - +elpa
+        - +pexsi
+        - +dlaf
+        - +cosma
+        - +sirius #sirius is not ready for elpa
+        - +libvori
+          # - +dftd4
+          # wait them until 2025.2 releases
+          #- +smeagol
+          #- +greenx
+          #- +grpp
+          #- +hdf5
+          #- +trexio
+        - +vdwxc
+    glib:
+      require:
+        - "@2.82:"
+    sirius:
+      require:
+        - ~elpa
+        - +scalapack
+        - +dlaf
+    boost:
+      require:
+        - cxxstd=23
+    mpi:
+      require:
+        - openmpi
+    openmpi:
+      require:
+        - +openshmem
+        - +static
+        - fabrics=ucx
+    greenx:
+      require:
+        - +lbasis
+        - +paw
+    dla-future:
+      require:
+        - +hdf5
+        - +miniapps
+    dftd4:
+      require:
+        - build_system=cmake
+    blas:
+      require:
+        - openblas
+          #c:
+      #prefer:
+        #- "gcc@14:"
+          #cxx:
+      #prefer:
+        #- "gcc@14:"
+    fortran:
+      prefer:
+      - gcc
+    lapack:
+      require:
+        - openblas
+          #pika:
+          #require:
+        #- "%gcc@14:"
+    texlive:
+      require:
+        #- "%gcc@14:"
+        - "@20240312:"
+    mpfr:
+      require:
+        - "@4:"
+    cairo:
+      require:
+        - +fc
+        - +ft
+        - +gobject
+        - +pdf
+        - +png
+        - +svg
+  specs:
+  - cp2k
+  - texlive
+  - rust
+  view: true
+  concretizer:
+    unify: true
