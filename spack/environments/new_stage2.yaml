@@ -92,10 +92,6 @@ spack:
       require:
         - +kxc
         - +lxc
-    libint:
-      require:
-        - +fortran
-        - tune=cp2k-lmax-7
     hdf5:
       require:
         - +cxx
@@ -111,7 +107,6 @@ spack:
   - llvm
   - fftw
   - elpa
-  - libint
   - libxc
   view: true
   concretizer:
