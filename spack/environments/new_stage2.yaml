@@ -44,8 +44,8 @@ spack:
       require:
         - +cma
         - +openmp
-        - +xpmem
-        - +knem
+          #- +xpmem
+          #- +knem
         - +vfs
         # verbs, rocm, rdmacm, rc/ud should be enabled along with GPU.
     #ucc: enable along with GPU.
