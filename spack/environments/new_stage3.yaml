@@ -84,6 +84,10 @@ spack:
     boost:
       require:
         - cxxstd=23
+        - +python # here & below 3 keys, for rdkit
+        - +serialization
+        - +iostreams
+        - +system
     mpi:
       require:
         - openmpi
